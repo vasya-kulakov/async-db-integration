@@ -1,0 +1,27 @@
+version: 1
+formatters:
+  fileformat: 
+    format: '{asctime} - {levelname} - {message}'
+    style: '{'
+    
+  
+  errorformat:
+    format: '{asctime} - {name} - {message}'
+    style: '{'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: WARNING
+    formatter: errorformat
+  oklist:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: fileformat
+    filename: CHOICEDIR_PLEASE/parser_log.log
+
+loggers:
+  parse_logger:
+    level: DEBUG
+    handlers: [console, oklist]
+  
